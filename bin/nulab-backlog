@@ -1,0 +1,27 @@
+require 'thor'
+require_relative '../app/base'
+
+include NulabBacklog
+
+Class.new(Thor) {
+  desc 'projects', 'Show projects'
+  def projects
+    App::Projects.new(config).run
+  end
+
+  desc 'issues', 'Show issues'
+  def issues
+    App::Issues.new(config).run
+  end
+
+  desc 'backup_wikis [DIR]', 'backup wiki pages'
+  def backup_wikis(dir='.')
+    App::BackupWikis.new(config).run(dir)
+  end
+
+  private
+
+  def config
+    {space_key: ENV['BACKLOG_SPACE_KEY'], api_key: ENV['BACKLOG_API_KEY']}
+  end
+}.start

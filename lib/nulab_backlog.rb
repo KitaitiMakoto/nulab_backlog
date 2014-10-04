@@ -1,5 +1,8 @@
-require "nulab_backlog/version"
-
-module NulabBacklog
-  # Your code goes here...
-end
+require 'nulab_backlog/version'
+require 'nulab_backlog/space'
+require 'nulab_backlog/user'
+require 'nulab_backlog/project'
+require 'nulab_backlog/wiki'
+require 'nulab_backlog/issue'
+require 'nulab_backlog/activity'
+require 'nulab_backlog/notification'
